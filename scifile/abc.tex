@@ -1,0 +1,262 @@
+% Use only LaTeX2e, calling the article.cls class and 12-point type.
+
+\documentclass[12pt]{article}
+
+% Users of the {thebibliography} environment or BibTeX should use the
+% scicite.sty package, downloadable from *Science* at
+% www.sciencemag.org/about/authors/prep/TeX_help/ .
+% This package should properly format in-text
+% reference calls and reference-list numbers.
+\usepackage[english]{babel}
+\usepackage{hyperref}
+\usepackage{scicite}
+\usepackage{graphicx}
+\usepackage[utf8x]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{cite}
+\usepackage{setspace}
+\renewcommand\citeleft{[}
+\renewcommand\citeright{]}
+\usepackage{enumitem}
+\usepackage{dirtytalk}
+\usepackage{xcolor}
+% Use times if you have the font installed; otherwise, comment out the
+% following line.
+
+\usepackage{times}
+
+% The preamble here sets up a lot of new/revised commands and
+% environments.  It's annoying, but please do *not* try to strip these
+% out into a separate .sty file (which could lead to the loss of some
+% information when we convert the file to other formats).  Instead, keep
+% them in the preamble of your main LaTeX source file.
+
+
+% The following parameters seem to provide a reasonable page setup.
+
+\topmargin 0.0cm
+\oddsidemargin 0.2cm
+\textwidth 16cm 
+\textheight 21cm
+\footskip 1.0cm
+
+
+%The next command sets up an environment for the abstract to your paper.
+
+\newenvironment{sciabstract}{%
+\begin{quote} \bf}
+{\end{quote}}
+
+
+% If your reference list includes text notes as well as references,
+% include the following line; otherwise, comment it out.
+
+\renewcommand\refname{References}
+
+% The following lines set up an environment for the last note in the
+% reference list, which commonly includes acknowledgments of funding,
+% help, etc.  It's intended for users of BibTeX or the {thebibliography}
+% environment.  Users who are hand-coding their references at the end
+% using a list environment such as {enumerate} can simply add another
+% item at the end, and it will be numbered automatically.
+
+\newcounter{lastnote}
+\newenvironment{scilastnote}{%
+\setcounter{lastnote}{\value{enumiv}}%
+\addtocounter{lastnote}{+1}%
+\begin{list}%
+{\arabic{lastnote}.}
+{\setlength{\leftmargin}{.22in}}
+{\setlength{\labelsep}{.5em}}}
+{\end{list}}
+
+
+% Include your paper's title here
+\begin{document}
+
+\begin{titlepage}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\center
+\textsc{\LARGE Digital Libraries and Web Information}\\ [0.3cm]
+\textsc{\LARGE Systems}\\[1cm]
+\textsc{\Large 5981P TEXT MINING PROJECT}\\[1.8cm]
+%\textsc{\large Minor Heading}\\[0.5cm]
+
+\HRule \\[0.4cm]{ \huge \bfseries Topic and Trend Detection in Scientific Papers}\\[0.4cm]\HRule \\[1.5cm]
+\begin{minipage}{0.4\textwidth}
+\begin{flushleft} \large
+\emph{Submitted by:}\\
+Monika Govindwar-82086\\
+Prathmesh Halgekar-82721\\
+Divyaben Hirpara-81956 % Your name
+\end{flushleft}
+\end{minipage}
+\begin{minipage}{0.4\textwidth}
+\begin{flushright} \large
+\emph{Supervised by:} \\
+Prof. Dr. Siegfried Handschuh\\
+Jelena Mitrovic % Supervisor's Name
+\end{flushright}
+\end{minipage}\\[2cm]
+{\large \today}\\[2cm]
+%\includegraphics{Uni_logo.png}\\[1cm]
+\vfill
+\end{titlepage}
+
+\author
+{Prathmesh Halgekar$-82721$ , Monika Govindwar$-82086$ , Divyaben Hirpara$-81956$\\
+\\
+\normalsize{
+Prof. Dr. Siegfried Handschuh, Jelena Mitrovic}\\
+\normalsize{Chair of Digital Libraries and Web Information Systems}\\
+\normalsize{Text Mining Project}\\
+\\
+\normalsize{ }
+}
+
+% Include the date command, but leave its argument blank.
+
+\date{}
+
+
+
+%%%%%%%%%%%%%%%%% END OF PREAMBLE %%%%%%%%%%%%%%%%
+
+
+
+
+
+% Double-space the manuscript.
+
+\baselineskip24pt
+
+% Make the title.
+
+\begin{abstract}
+
+Topic identification and trend detection  is a new and challenging problem in text mining.The goal of this project is to identify academic topics and to detect trends in research using text mining techniques. Automatic identification of semantic content of documents has become increasingly important due to its effectiveness in many tasks including information retrieval, information filtering and organization of documents collections in digital libraries\cite{6}.
+
+\end{abstract}
+\newpage
+
+\setstretch{1.5}
+
+\tableofcontents
+\newpage
+
+% In setting up this template for *Science* papers, we've used both
+% the \section* command and the \paragraph* command for topical
+% divisions.  Which you use will of course depend on the type of paper
+% you're writing.  Review Articles tend to have displayed headings, for
+% which \section* is more appropriate; Research Articles, when they have
+% formal topical divisions at all, tend to signal them with bold text
+% that runs into the paragraph, for which \paragraph* is the right
+% choice.  Either way, use the asterisk (*) modifier, as shown, to
+% suppress numbering.
+
+\section{Introduction}
+\begin{center}"What are the these \textcolor{blue}{\textbf{scientific papers}} about ?"\end{center}
+\begin{figure}[h]
+\centering
+%\includegraphics[scale=0.30]{thinking}
+\end{figure}
+As volume and diversity of scientific resources is growing at a rapid pace. Hence, topic identification from any scientific paper, trend detection and analysis have become much more important issues due to their application in many fields and the extensive growth of the number of documents in various domains. Usually, data mining tries to discover information hidden in scientific literature, which is not accessible by simple statistical techniques \cite{7} whereas, text mining techniques area is significant subset of data mining that aims to extract knowledge from unstructured or semi-structured textual data and has widespread applications in analysing and processing textual documents \cite{8}. Hence, we are using text mining techniques to identify topic and detect research trends in design research.\\
+The knowledge of research topic or rather the early awareness of the emergence of a specific research topic would  benefit anybody involved in the research environment. Imagine that we are researchers and looking for topics that have recently attracted much interest and utility in a particular domain. A manual review of all available articles in this domain would be so time-consuming as to be virtually impossible. In this situation, the automatic detection of emerging research trends can help researchers quickly understand the occurrence and the tendency of a scientific topic\cite{1}. In returns, it will be  more helpful  for academic publishers and editors to exploit this knowledge and offer the most up to date and interesting contents.
+\section{Existing work and Motivation}
+Recently, several ETD (Emerging Trend Detection) models have been proposed \cite{3-5}, in which the ETD process can be viewed in three phases: topic representation, identification, and verification. The ETD central notion is usually represented by a set of temporal features in the topic representation phase. These features are then extracted from document databases using text-processing methods in the feature extraction phase. After that, in topic verification these features are monitored over time and the topic is classified using interest and utility functions\cite{2}.
+\section{Applications or Technology used}
+The various tools and technologies are used to accomplish this project. Those are briefly discussed below.
+\begin{itemize}
+\item{NLTK}: The Natural Language ToolKit (NLTK) is a Python library for computational linguistics. NLTK includes a great number of common natural language processing tools including a tokenizer, a part of speech (POS) tagger, a stemmer, a lemmatizer which were extensively used in our project.  In addition to these tools, NLTK has built in many common corpora including the Brown Corpus and WordNet.
+\item{Scikit-learn}: Sklearn is a machine-learning library for Python which provides simple and efficient tools for data analysis and data mining. It is designed to interoperate with the Python numerical and scientific libraries like NumPy, SciPy, and matplotlib. It features various classification, regression and clustering algorithms including k-means.
+\item{NMF}: Non-negative matrix factorization (NMF) in machine learning is unsupervised learning model  where a matrix V is factorized into two matrices W and H, with the condition that all three matrices have no negative elements. NMF is widely applicable in most real world cases where V can't have negative values. General applications of nmf include: Topic recovery like Probabilistic Latent Semantic Analysis and Clustering like K-means. For clustering words, NMF is utilized in our project.
+\item{NumPy}: NumPy is a scientific and numerical computing extension used to operate on arrays in Python programming language. It supports for calculations with multi dimensional arrays.
+\end{itemize}
+
+\section{System Architecture}
+\section{System Requirements}
+\section{Results}
+\section{Conclusion}
+\section{Future Enhancements}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\input{samplebody-conf}
+\begin{thebibliography}{9}
+
+\bibitem{Hoang}
+Minh-Hoang Le, Tu-Bao Ho, Yoshiteru Nakamori,
+\textit{Detecting Emerging Trends from Scientific Corpora}, Inter- national Journal of Knowledge and Systems Sciences, 2005.
+
+\bibitem{google}
+Concept hierarchy
+\url{http://slideplayer.com/slide/8228328/}.
+
+\bibitem{scholar}
+Francesco Osborne, Enrico Motta, Paul Mulholland,
+\textit{Exploring Scholarly Data with Rexplore},In The Semantic Web-ISWC 2013 (pp. 460-477)Springer Berlin Heidelberg. (2013).
+ 
+ \bibitem{salton}
+ G.Salton, C.S. Yang, “On the specification of term
+values in automatic indexing”, Journal of
+Documentation, Vol. 29, pp. 351-372, 1973 
+ \url{http://www.emeraldinsight.com/doi/pdfplus/10.1108/eb026562}.
+ 
+\bibitem{smart}
+Francesco Osborne, Angelo Salatino, Aliaksandr Birukou, Enrico Motta
+\textit{Smart Topic Miner: Supporting Springer Nature Editors with Semantic Web Technologies}, In International Semantic Web Conference 2016 (pp. 383-399). Springer. (2016)
+
+
+\bibitem{NLP}
+
+ \url{https://en.wikipedia.org/wiki/Natural-language-processing}
+
+\bibitem{peer}
+Angelo A. Salatino​, Francesco Osborne, Enrico Motta
+\textit{How are topics born? Understanding the research dynamics preceding the emergence of new areas}
+ \url{https://peerj.com/articles/cs-119/}
+ 
+ \bibitem{aminer} 
+ \url{http://www.wsdm-conference.org/2016/slides/jie-tang-aminer.pdf}
+\end{thebibliography}
+
+
+
+
+
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
